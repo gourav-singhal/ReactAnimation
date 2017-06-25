@@ -28,7 +28,12 @@ export default class stepper extends Component {
   }
 
   animate() {
+    this.animatedValue.setValue(0);
+    this.animatedValue1.setValue(0);
+    this.animatedValue2.setValue(0);
+    this.animatedValue3.setValue(0);
     Animated.sequence([
+      
     Animated.timing(this.animatedValue3, {
         toValue: 0.2,
         duration: 500,
@@ -62,10 +67,10 @@ export default class stepper extends Component {
     const animatedStyle3 = { opacity: this.animatedValue3 };
     return (
       <View>
-        <Animated.View style={[styles.magnifyingGlassCircle, animatedStyle]} />
-        <Animated.View style={[styles.magnifyingGlassCircle1, animatedStyle1]} />
-        <Animated.View style={[styles.magnifyingGlassCircle2, animatedStyle2]} />
-        <Animated.View style={[styles.magnifyingGlassCircle3, animatedStyle3]} />
+        <Animated.View style={[styles.curveCircle, animatedStyle]} />
+        <Animated.View style={[styles.curveCircle1, animatedStyle1]} />
+        <Animated.View style={[styles.curveCircle2, animatedStyle2]} />
+        <Animated.View style={[styles.curveCircle3, animatedStyle3]} />
         <Animated.View style={styles.curve} />
       </View>
     );
@@ -96,22 +101,7 @@ const styles = StyleSheet.create({
     top: 190,
     left: 190
   },
-  curve1: {
-    width: 0,
-    height: 0,
-    borderWidth: 10,
-    borderTopColor: 'red',
-    borderBottomColor: 'transparent',
-    borderStyle: 'solid',
-    borderTopLeftRadius: 400,
-    borderTopRightRadius: 0,
-    borderBottomRightRadius: 0,
-    borderBottomLeftRadius: 0,
-    transform: [
-      {rotate: '45deg'}
-    ]
-  },
-  magnifyingGlassCircle: {
+  curveCircle: {
     width: 400,
     height: 400,
     borderRadius: 200,
@@ -121,7 +111,7 @@ const styles = StyleSheet.create({
     borderRightColor: 'transparent',
     borderBottomColor: 'transparent',
   },
-  magnifyingGlassCircle1: {
+  curveCircle1: {
     position: 'absolute',
     width: 300,
     height: 300,
@@ -135,7 +125,7 @@ const styles = StyleSheet.create({
     left: 50
 
   },
-  magnifyingGlassCircle2: {
+  curveCircle2: {
     position: 'absolute',
     width: 200,
     height: 200,
@@ -150,7 +140,7 @@ const styles = StyleSheet.create({
 
   },
 
-  magnifyingGlassCircle3: {
+  curveCircle3: {
     position: 'absolute',
     width: 100,
     height: 100,
